@@ -64,6 +64,9 @@ cdef class OperationGroup(Segment):
 
         error_check(self.ptr.AddParameter(param.param_ptr))
 
+    def append_input_segment(self, Segment value not None):
+        error_check(self.ptr.AppendInputSegment(value.seg_ptr))
+
     def input_segments(self):
         cdef Segment seg
         for i in xrange(self.nb_input_segments):
